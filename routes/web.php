@@ -20,3 +20,4 @@ Route::get('/Example', 'ExampleController@list');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+///trey was here 
