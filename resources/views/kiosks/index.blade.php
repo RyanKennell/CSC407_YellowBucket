@@ -22,5 +22,11 @@
         @endforeach
         </tbody>
     </table>
-
+    <form method="CREATE" action="{{ route('kiosks.create') }}">
+    <div class="form-group row">
+        <div class="col-xs-offset-4 col-xs-8">
+            <button name="submit" type="submit" class="btn btn-primary">add to Kiosks</button>
+        </div>
+    </div>
+    </form>
 @endsection
