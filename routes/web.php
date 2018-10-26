@@ -16,6 +16,9 @@ Route::get('/', function () {
 });
 
 Route::get('/Example', 'ExampleController@list');
+Route::resource('/Movies', 'MovieController');
+
+Route::resource('/people', 'PersonController');
 
 Auth::routes();
 

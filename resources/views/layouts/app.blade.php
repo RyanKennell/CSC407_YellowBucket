@@ -18,6 +18,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/4-col-portfolio.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
@@ -72,6 +75,9 @@
             </div>
         </nav>
 
+        <div class="container">
+            @include('layouts.errors')
+        </div>
         <main class="py-4">
             @yield('content')
         </main>
