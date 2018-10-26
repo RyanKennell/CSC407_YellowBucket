@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
 
-        {{-- action is pointed to the named route people.store which translates to a POST to /people --}}
+        {{-- action is pointed to the named route kiosks.store which translates to a POST to /people --}}
         <form method="POST" action="{{ route('kiosks.store') }}">
             @csrf
             <div class="form-group row">

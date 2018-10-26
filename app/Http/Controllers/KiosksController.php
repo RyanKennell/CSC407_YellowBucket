@@ -27,7 +27,7 @@ class KiosksController extends Controller
      */
     public function create()
     {
-        //
+        return view('kiosks.create');
     }
 
     /**
