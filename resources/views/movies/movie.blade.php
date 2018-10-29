@@ -4,34 +4,19 @@
 
     <h1> Movies List </h1>
 
-    <table class="table">
-        <thead>
-        <tr>
-            <th> title       </th>
-            <th> rating      </th>
-            <th> length      </th>
-            <th> genreID     </th>
-            <th> description </th>
-            <th> onDVD       </th>
-            <th> onBlueRay   </th>
-            <th> coverPhoto  </th>
-        </tr>
-        </thead>
+    <div class="row">
+    @for ($i = 0; $i < count($movies); $i++)
+        @if($i % 5 == 0)
+            </div>
+            <div class="row">
+        @endif
 
-        <tbody>
-        @foreach($movies as $movie)
-            <tr>
-                <td>{{ $movie['title'] }}</td>
-                <td>{{ $movie['rating'] }}</td>
-                <td>{{ $movie['length'] }}</td>
-                <td>{{ $movie['genreID'] }}</td>
-                <td>{{ $movie['description'] }}</td>
-                <td>{{ $movie['onDVD'] }}</td>
-                <td>{{ $movie['onBlueRay'] }}</td>
-                <td><img src="/images/{{$movie['coverPhoto'] }}" alt="Cover Picture" height="100" width="100"></td>
-            </tr>
-        @endforeach
-        </tbody>
-
-    </table>
+         <div class="col-1 m-3" >
+            <h3>{{ $movies[$i]['title'] }}</h3>
+             <a href="http://csc407dev.com/Movies/{{ $movies[$i]['id'] }}">
+                 <img border="0" alt="cover photo" src="/images/{{$movies[$i]['coverPhoto'] }}" width="100" height="100">
+             </a>
+         </div>
+    @endfor
+    </div>
 @endsection
