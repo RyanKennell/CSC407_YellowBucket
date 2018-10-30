@@ -80,10 +80,6 @@
                 </div>
             </div>
         </nav>
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/Ryan_Branch_Movies_Display
         <div class="container">
             @include('layouts.errors')
         </div>
