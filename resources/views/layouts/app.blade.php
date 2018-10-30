@@ -11,6 +11,12 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <Style type="text/css">
+        #map {
+            height: 400px;  /* The height is 400 pixels */
+            width: 400px;  /* The width is the width of the web page */
+        }
+    </Style>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
