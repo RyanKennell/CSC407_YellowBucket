@@ -9,3 +9,7 @@
         </ul>
     </div>
 @endif
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/Ryan_Branch_Movies_Display

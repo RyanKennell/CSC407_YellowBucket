@@ -15,8 +15,12 @@ class MovieController extends Controller
     public function index()
     {
         $movies = Movie::get()->toArray();
+<<<<<<< HEAD
         
         dd( $movies);
+=======
+        return view('movies.movie')->with('movies', $movies);
+>>>>>>> refs/remotes/origin/Ryan_Branch_Movies_Display
     }
 
     /**

@@ -12,10 +12,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+<<<<<<< HEAD
         Model::unguard();
 
         $this->call(PeopleTableSeeder::class);
         $this->call(KiosksTableSeeder::class);
 
+=======
+        // $this->call(UsersTableSeeder::class);
+        $this->call(PeopleTableSeeder::class);
+>>>>>>> refs/remotes/origin/Ryan_Branch_Movies_Display
     }
 }

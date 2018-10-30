@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+<<<<<<< HEAD
 Route::get('/string', function () {
     return 'Hello World';
 });
@@ -23,6 +24,12 @@ Route::get('/string', function () {
 Route::resource('/movies', 'MovieController');
 Route::resource('/people', 'PersonController');
 Route::resource('/kiosks', 'KiosksController');
+=======
+Route::get('/Example', 'ExampleController@list');
+Route::resource('/Movies', 'MovieController');
+
+Route::resource('/people', 'PersonController');
+>>>>>>> refs/remotes/origin/Ryan_Branch_Movies_Display
 
 Auth::routes();
 
