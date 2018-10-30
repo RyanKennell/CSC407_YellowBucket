@@ -27,3 +27,4 @@ Route::resource('/kiosks', 'KiosksController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+///trey was here 
