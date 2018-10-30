@@ -15,8 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/Example', 'ExampleController@list');
 Route::resource('/Movies', 'MovieController');
+
+Route::resource('/Movies/{id}', 'MovieController');
 
 Route::resource('/people', 'PersonController');
 
