@@ -23,8 +23,9 @@ Route::resource('/movies', 'MovieController');
 Route::resource('/people', 'PersonController');
 Route::resource('/kiosks', 'KiosksController');
 
-Route::get('/Example', 'ExampleController@list');
 Route::resource('/Movies', 'MovieController');
+
+Route::resource('/Movies/{id}', 'MovieController');
 
 Route::resource('/people', 'PersonController');
 

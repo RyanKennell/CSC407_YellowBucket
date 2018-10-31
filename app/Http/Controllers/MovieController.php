@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Movie;
 
+/**
+ * Class MovieController
+ * @package App\Http\Controllers
+ * @Author Ryan Kennell
+ */
 class MovieController extends Controller
 {
     /**
@@ -50,7 +55,17 @@ class MovieController extends Controller
      */
     public function show($id)
     {
-        //
+        $movies = Movie::get()->toArray();
+        for($i = 0; $i < count($movies); $i ++)
+        {
+            if($id == $movies[$i]['id'])
+            {
+                return view('movies.movieinfo')->with('movie', $movies[$i]);
+            }
+        }
+
+        //no movie found
+        return null;
     }
 
     /**
