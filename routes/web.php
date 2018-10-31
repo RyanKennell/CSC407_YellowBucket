@@ -22,6 +22,7 @@ Route::get('/string', function () {
 Route::resource('/movies', 'MovieController');
 Route::resource('/people', 'PersonController');
 Route::resource('/kiosks', 'KiosksController');
+Route::resource('/kiosks/(id)', 'KiosksController');
 
 Route::resource('/Movies', 'MovieController');
 

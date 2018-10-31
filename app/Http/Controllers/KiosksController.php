@@ -55,10 +55,19 @@ class KiosksController extends Controller
      *
      * @param  \App\Kiosks  $kiosks
      * @return \Illuminate\Http\Response
+     * By Brandon Lagorga
      */
-    public function show(Kiosks $kiosks)
+    public function show($id)
     {
-        //
+        $Kiosks = Kiosks::get()->toArray();
+        for($i = 0; $i < count($Kiosks); $i ++)
+        {
+            if($id == $Kiosks[$i]['id'])
+            {
+                return view('kiosks.kiosksinfo')->with('kiosks', $Kiosks[$i]);
+            }
+        }
+        return null;
     }
 
     /**
