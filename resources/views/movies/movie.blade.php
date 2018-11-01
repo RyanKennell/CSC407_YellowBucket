@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+<!--Author @ Ryan Kennell-->
+
 @section('content')
 
     <div class="bg-info">
@@ -18,7 +20,7 @@
             <div class="row">
         @endif
 
-         <div class="col-lg-2 text-center border-0" >
+         <div class="pt-3 col-lg-2 text-center" >
             <div class="img-thumbnail">
                 <a href="http://csc407dev.com/Movies/{{ $movies[$i]['id'] }}">
                     <img border="5" alt="cover photo" src="/images/{{$movies[$i]['coverPhoto'] }}" width="150" height="250">
@@ -34,6 +36,12 @@
             </div>
          </div>
     @endfor
+
     </div>
+
+    <!-- Footer -->
+    <footer class="page-footer bg-info">
+            <div class="footer-copyright text-center py-3">© 2018 Copyright: YellowBucket Corporation</div>
+    </footer>
 
 @endsection
