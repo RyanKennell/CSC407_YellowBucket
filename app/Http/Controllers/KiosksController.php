@@ -6,6 +6,7 @@ use App\Http\Requests\CreateKiosksValidation;
 use App\Kiosks;
 use Illuminate\Http\Request;
 
+
 class KiosksController extends Controller
 {
     /**
@@ -18,6 +19,11 @@ class KiosksController extends Controller
         $k = Kiosks::get()->toArray();
 
         return view('kiosks.index')->with('kiosks', $k);
+    }
+    public function gmaps()
+    {
+        $locations = DB::table('kiosks')->get();
+        return view('kiosks',compact('locations'));
     }
 
     /**

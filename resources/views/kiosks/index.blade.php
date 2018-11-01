@@ -1,30 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Kiosks List</h1>
-
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Location</th>
-            <th>Address</th>
-            <th>Total Movies</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($kiosks as $kiosks)
-
-            <tr>
-                <td>{{ $kiosks['location'] }}</td>
-                <td>{{ $kiosks['address'] }}</td>
-            </tr>
-
-        @endforeach
-        </tbody>
-    </table>
-    <h3>Kiosks Locations</h3>
+    <h1>Kiosks in the area</h1>
     <div id="map"></div>
+
     <script>
+
         // Initialize and add the map
         function initMap() {
             // The location of beaverfalls
@@ -36,6 +17,30 @@
             var marker = new google.maps.Marker({position: beaverfalls, map: map});
         }
     </script>
+
+    <h2>Kiosks Locations</h2>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Location</th>
+            <th>Address</th>
+            <th>Total Movies</th>
+        </tr>
+        </thead>
+        <tbody>
+        @for ($i = 0; $i < count($kiosks); $i++)
+                <tr>
+                    <td><a href="http://csc407dev.com/kiosks/{{ $kiosks[$i]['id'] }}">
+                            <div style="height:100%;width:100%">
+                                {{$kiosks[$i]['location']}}
+                            </div>
+                        </a></td>
+                    <td>{{ $kiosks[$i]['address'] }}</td>
+                </tr>
+        @endfor
+        </tbody>
+    </table>
     <!--Load the API from the specified URL
     * The async attribute allows the browser to render the page while the API loads
     * The key parameter will contain your own API key (which is not needed for this tutorial)
