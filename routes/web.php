@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
- return view('welcome');
+ return view('admin');
 });
 
 
@@ -23,8 +23,8 @@ Route::resource('/people', 'PersonController');
 Route::resource('/kiosks', 'KiosksController');
 
 Auth::routes();
-Route::get('/admin', 'CreatemovieController@home');
-Route::get('/admin/create', function (){
+Route::get('/admin', 'CreatemovieController@admin');
+Route::get('/create', function (){
 	return view('createmovie');
 });
 	

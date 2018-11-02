@@ -6,7 +6,7 @@
 	use App\Movie;
 	class CreatemovieController extends Controller
 	{
-		public function home()
+		public function admin()
 		{
 			$movies = Movie::all();
 			return view('admin', ['movies' => $movies]);
