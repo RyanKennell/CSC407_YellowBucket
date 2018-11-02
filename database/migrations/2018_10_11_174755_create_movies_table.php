@@ -15,17 +15,19 @@ class CreateMoviesTable extends Migration
     {
         Schema::create('movies', function (Blueprint $table) {
             $table->increments('id');
+            
             $table->string('title', 64);
-			$table->string('coverPhoto', 64)->nullable();
-			$table->string('description', 1024)->nullable();
-            $table->string('rating',16)->nullable();
-            $table->integer('length')->nullable();
+            $table->string('rating',16);
+            $table->integer('length');
+
             //Foreign Key
             $table->integer('genreID')->nullable();
-  
-            $table->boolean('onDVD')->nullable();
-            $table->boolean('onBlueRay')->nullable();
-             $table->string('Action', 1024)->nullable();
+
+            $table->string('description', 1024)->nullable();
+            $table->boolean('onDVD');
+            $table->boolean('onBlueRay');
+            $table->string('coverPhoto', 64)->nullable();
+            
             $table->softDeletes();
             $table->timestamps();
         });
