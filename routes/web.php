@@ -12,19 +12,25 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/string', function () {
-    return 'Hello World';
+    return view('home');
 });
 
 
-Route::resource('/movies', 'MovieController');
+
+
+
 Route::resource('/people', 'PersonController');
 Route::resource('/kiosks', 'KiosksController');
 
 Auth::routes();
+Route::get('/', 'CreatemovieController@home');
+Route::get('/create', function (){
+	return view('createmovie');
+});
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/insert', 'CreatemovieController@add');
+Route::get('/update/{id}', 'CreatemovieController@update');
+Route::post('/edit/{id}', 'CreatemovieController@edit');
+Route::get('/read/{id}', 'CreatemovieController@read');
+Route::get('/delete/{id}', 'CreatemovieController@delete');
 ///trey was here 
