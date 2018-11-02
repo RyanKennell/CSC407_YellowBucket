@@ -17,6 +17,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/admin', 'CreatemovieController@admin');
+Route::get('/create', function (){
+	return view('createmovie');
+});
+
+Route::post('/admin/insert', 'CreatemovieController@add');
+Route::get('/admin/update/{id}', 'CreatemovieController@update');
+Route::post('/admin/edit/{id}', 'CreatemovieController@edit');
+Route::get('/admin/read/{id}', 'CreatemovieController@read');
+Route::get('/admin/delete/{id}', 'CreatemovieController@delete');
+
 Route::resource('/kiosks', 'KiosksController');
 Route::resource('/kiosks/(id)', 'KiosksController');
 

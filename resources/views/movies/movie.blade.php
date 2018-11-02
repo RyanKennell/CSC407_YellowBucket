@@ -22,7 +22,7 @@
 
          <div class="pt-3 col-lg-2 text-center" >
             <div class="img-thumbnail">
-                <a href="http://csc407dev.com/Movies/{{ $movies[$i]['id'] }}">
+                <a href="http://csc407dev.com/movies/{{ $movies[$i]['id'] }}">
                     <img border="5" alt="cover photo" src="/images/{{$movies[$i]['coverPhoto'] }}" width="150" height="250">
                 </a>
                 <div class="caption">
