@@ -17,17 +17,16 @@ class CreateMoviesTable extends Migration
             $table->increments('id');
             
             $table->string('title', 64);
-            $table->string('rating',16);
-            $table->integer('length');
+			$table->string('coverPhoto', 64)->nullable();
+			$table->string('description', 1024)->nullable();
+            $table->string('rating',16)->nullable();
+            $table->integer('length')->nullable();
 
             //Foreign Key
-            $table->integer('genreID')->nullable();
-
-            $table->string('description', 1024)->nullable();
-            $table->boolean('onDVD');
-            $table->boolean('onBlueRay');
-            $table->string('coverPhoto', 64)->nullable();
-            
+            $table->integer('genreID')->nullable(); 
+            $table->boolean('onDVD')->nullable();
+            $table->boolean('onBlueRay')->nullable();
+             $table->string('Action', 1024)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

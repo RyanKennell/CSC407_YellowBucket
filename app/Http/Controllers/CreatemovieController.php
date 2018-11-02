@@ -25,7 +25,7 @@
 			$movies-> description = $request->input
 			('description');
 			$movies ->save();
-			return redirect('/')->with('info','Movie 
+			return redirect('/admin')->with('info','Movie 
 			Saved Succesfuly');
 		}
 		
@@ -48,7 +48,7 @@
 			);
 			Movie::where('id', $id)
 			->update($data );
-			return redirect('/')->with('info','Movie Updated Succesfuly');
+			return redirect('/admin')->with('info','Movie Updated Succesfuly');
 		}
 		
 		public function read($id)
@@ -61,7 +61,7 @@
 		{
 	Movie::where('id', $id)
 	->delete();
-	return redirect('/')->with('info','Movie Deleted Succesfuly');
+	return redirect('/admin')->with('info','Movie Deleted Succesfuly');
 		  
 		}
 	}

@@ -42,12 +42,12 @@
 					<td>Column content</td>
 					<td>Column content</td>
 					<td>
-						<a href='{{ url("/read/{$movies->id}")}}''
+						<a href='{{ url("/admin/read/{$movies->id}")}}''
 						class= "btn btn-primary">Read</a> |
-						<a href='{{ url("/update/{$movies->id}")}}''
+						<a href='{{ url("/admin/update/{$movies->id}")}}''
 						class="btn btn-success">Update</a> |
 						
-						<a href='{{ url("/delete/{$movies->id}")}}''
+						<a href='{{ url("/admin/delete/{$movies->id}")}}''
 						class="btn btn-danger">Delete</a> |
 						
 						
