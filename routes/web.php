@@ -14,6 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/string', function () {
+    return 'Hello World';
+});
+
+
+Route::resource('/movies', 'MovieController');
+Route::resource('/people', 'PersonController');
+Route::resource('/kiosks', 'KiosksController');
 
 Auth::routes();
 

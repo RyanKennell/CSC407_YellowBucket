@@ -22,6 +22,9 @@ class MovieController extends Controller
     public function index()
     {
         $movies = Movie::get()->toArray();
+        
+        dd( $movies);
+
         return view('movies.movie')->with('movies', $movies);
     }
 

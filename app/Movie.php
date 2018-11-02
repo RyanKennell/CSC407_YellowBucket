@@ -9,4 +9,5 @@ class Movie extends Model
     protected $fillable = [
         'title', 'rating', 'length', 'genreID','description', 'onDVD', 'onBlueRay', 'coverPhoto'
     ];
+
 }
