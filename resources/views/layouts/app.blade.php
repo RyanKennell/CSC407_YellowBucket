@@ -11,12 +11,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <Style type="text/css">
-        #map {
-            height: 400px;  /* The height is 400 pixels */
-            width: 100%;  /* The width is the width of the web page */
-        }
-    </Style>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -24,6 +18,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <Style type="text/css">
+        #map {
+            height: 400px;  /* The height is 400 pixels */
+            width: 100%;  /* The width is the width of the web page */
+        }
+    </Style>
 
 </head>
 <body>
@@ -38,8 +38,8 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="pl-3 pr-3 btn-light text-dark"><a href="http://csc407dev.com/Movies">Movies</a></div>
-                <div class="pl-3 pr-3 btn-light text-dark"><a href="http://csc407dev.com/Kiosks">Locations</a></div>
+                <div class="pl-3 pr-3 btn-light text-dark"><a href="http://csc407dev.com/movies">Movies</a></div>
+                <div class="pl-3 pr-3 btn-light text-dark"><a href="http://csc407dev.com/kiosks">Locations</a></div>
 
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -82,6 +82,7 @@
                 </div>
             </div>
         </nav>
+
         <div class="container">
             @include('layouts.errors')
         </div>
