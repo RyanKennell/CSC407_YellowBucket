@@ -3,9 +3,8 @@
 @section('content')
     <h1>Kiosks in the area</h1>
     <div id="map"></div>
-
+    @for ($i = 0; $i < count($kiosks); $i++)
     <script>
-
         // Initialize and add the map
         function initMap() {
             // The location of beaverfalls
@@ -17,7 +16,7 @@
             var marker = new google.maps.Marker({position: beaverfalls, map: map});
         }
     </script>
-
+    @endfor
     <h2>Kiosks Locations</h2>
 
     <table class="table">
@@ -25,7 +24,6 @@
         <tr>
             <th>Location</th>
             <th>Address</th>
-            <th>Total Movies</th>
         </tr>
         </thead>
         <tbody>
