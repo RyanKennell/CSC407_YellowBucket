@@ -11,7 +11,7 @@ class InventoryTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('Inventory')->delete();
+        DB::table('Inventories')->delete();
 
         Inventory::create(array(
             'copies' =>'22',
