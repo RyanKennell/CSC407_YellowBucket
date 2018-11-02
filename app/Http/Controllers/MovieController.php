@@ -2,9 +2,16 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Movie;
+use App\Genre;
 
+/**
+ * Class MovieController
+ * @package App\Http\Controllers
+ * @Author Ryan Kennell
+ */
 class MovieController extends Controller
 {
     /**
@@ -50,7 +57,25 @@ class MovieController extends Controller
      */
     public function show($id)
     {
-        //
+        $movies = Movie::get()->toArray();
+        $genres = Genre::get()->toArray();
+        for($i = 0; $i < count($movies); $i ++)
+        {
+            if($id == $movies[$i]['id'])
+            {
+                for($y = 0; $y < count($genres); $y ++)
+                {
+                    if($movies[$i]['genreID'] == $genres[$y]['id'])
+                    {
+                        $data = array($movies[$i], $genres[$y]);
+                        return view('movies.movieinfo')->with('data', $data);
+                    }
+                }
+            }
+        }
+
+        //no movie found
+        return null;
     }
 
     /**
