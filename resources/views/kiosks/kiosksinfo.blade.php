@@ -9,6 +9,7 @@
             <h3> Movies List </h3>
         </div>
     </div>
+
     <table class="table">
         <thead>
         <tr>
@@ -16,12 +17,14 @@
             <th>Movies</th>
         </tr>
         </thead>
+        @for ($i = 0; count($data[2]) > $i; $i++)
         <tbody>
             <tr>
-                <td>{{ $data[0]['copies'] }}</td>
-                <td>{{ $data[0]['movie_id'] }}</td>
+                <td>{{$data[1]['copies']}}</td>
+                <td>{{ $data[2]['title'] }}</td>
             </tr>
         </tbody>
+            @endfor
     </table>
 
     <footer class="page-footer bg-info">

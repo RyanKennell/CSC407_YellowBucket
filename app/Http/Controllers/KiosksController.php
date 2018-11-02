@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateKiosksValidation;
 use App\Kiosks;
 use App\Inventory;
+use App\Movie;
 use Illuminate\Http\Request;
 
 
@@ -69,16 +70,19 @@ class KiosksController extends Controller
     {
         $Kiosks = Kiosks::get()->toArray();
         $inventory = Inventory::get()->toArray();
+        $movie = Movie::get()->toArray();
         for($i = 0; $i < count($Kiosks); $i ++)
         {
             if($id == $Kiosks[$i]['id'])
             {
                 for($y = 0; $y < count($inventory); $y ++)
                 {
-                    if($inventory[$i]['kiosks_id'] == $Kiosks[$y]['id'])
+                    for($z = 0; $z < count($movie); $z ++)
                     {
-                        $data = array($Kiosks[$i], $inventory[$y]);
-                        return view('kiosks.kiosksinfo')->with('data', $data);
+                        if ($inventory[$i]['kiosks_id'] == $Kiosks[$y]['id']) {
+                            $data = array($Kiosks[$i], $inventory[$y], $movie[$z]);
+                            return view('kiosks.kiosksinfo')->with('data', $data);
+                        }
                     }
                 }
             }
