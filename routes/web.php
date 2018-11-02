@@ -15,12 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/Kiosks', 'KiosksController');
-Route::resource('/Movies', 'MovieController');
+Route::resource('/kiosks', 'KiosksController');
+Route::resource('/movies', 'MovieController');
 
 Auth::routes();
 
-Route::get('/Movies/{id}', 'MovieController@show');
+Route::get('/movies/{id}', 'MovieController@show');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

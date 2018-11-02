@@ -32,8 +32,8 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="pl-3 pr-3 btn-light text-dark"><a href="http://csc407dev.com/Movies">Movies</a></div>
-                <div class="pl-3 pr-3 btn-light text-dark"><a href="http://csc407dev.com/Kiosks">Locations</a></div>
+                <div class="pl-3 pr-3 btn-light text-dark"><a href="http://csc407dev.com/movies">Movies</a></div>
+                <div class="pl-3 pr-3 btn-light text-dark"><a href="http://csc407dev.com/kiosks">Locations</a></div>
 
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
