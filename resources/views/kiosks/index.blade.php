@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<!--Author @ Brandon LaGorga-->
 @section('content')
     <h1>Kiosks in the area</h1>
     <div id="map"></div>

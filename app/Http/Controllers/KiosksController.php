@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateKiosksValidation;
 use App\Kiosks;
+use App\Movie;
 use Illuminate\Http\Request;
 
 
 class KiosksController extends Controller
 {
     /**
+     * Author by Brandon LaGorga
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
