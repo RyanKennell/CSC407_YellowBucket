@@ -14,18 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/string', function () {
-    return 'Hello World';
-});
 
-
-Route::resource('/movies', 'MovieController');
-Route::resource('/people', 'PersonController');
-Route::resource('/kiosks', 'KiosksController');
+Route::resource('/Kiosks', 'KiosksController');
+Route::resource('/Movies', 'MovieController');
 
 Auth::routes();
 
-Route::resource('/Movies', 'MovieController');
+Route::get('/Movies/{id}', 'MovieController@show');
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('/Movies/{id}', 'MovieController');
+
