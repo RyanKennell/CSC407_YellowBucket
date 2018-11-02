@@ -1,7 +1,11 @@
 @extends('layouts.app')
 <!--Author @ Brandon LaGorga-->
 @section('content')
-    <h1>Kiosks in the area</h1>
+    <div class="bg-info">
+        <div class="pt-3 text-center card-title text-white">
+            <h1>Kiosks in the Area</h1>
+        </div>
+    </div>
     <div id="map"></div>
     @for ($i = 0; $i < count($kiosks); $i++)
     <script>
@@ -17,7 +21,11 @@
         }
     </script>
     @endfor
-    <h2>Kiosks Locations</h2>
+    <div class="bg-info">
+        <div class="pt-3 text-center card-title text-white">
+            <h2>Kiosks Locations</h2>
+        </div>
+    </div>
 
     <table class="table">
         <thead>
@@ -47,4 +55,7 @@
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqdeXvndAAQ6Jk6SIqy1z-dmxoAZ3HlRw&callback=initMap">
     </script>
+    <footer class="page-footer bg-info">
+        <div class="footer-copyright text-center py-3">© 2018 Copyright: YellowBucket Corporation</div>
+    </footer>
 @endsection

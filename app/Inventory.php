@@ -4,11 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Kiosks extends Model
+class Inventory extends Model
 {
-//* Author by Brandon LaGorga
     protected $fillable = [
-      'location','address',
+        'copies','movie_id','kiosks_id',
     ];
-
 }

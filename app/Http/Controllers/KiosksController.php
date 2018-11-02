@@ -4,14 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateKiosksValidation;
 use App\Kiosks;
-use App\Movie;
 use Illuminate\Http\Request;
 
 
 class KiosksController extends Controller
 {
     /**
-     * Author by Brandon LaGorga
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -61,9 +59,10 @@ class KiosksController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Kiosks  $kiosks
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return \Illuminate\Http\Response By Brandon Lagorga
      * By Brandon Lagorga
+     * @internal param Kiosks $kiosks
      */
     public function show($id)
     {
