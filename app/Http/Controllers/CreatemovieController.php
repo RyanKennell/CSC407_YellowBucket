@@ -6,7 +6,7 @@
 	use App\Movie;
 	class CreatemovieController extends Controller
 	{
-		public function admin()
+		public function home()
 		{
 			$movies = Movie::all();
 			return view('admin', ['movies' => $movies]);
@@ -25,7 +25,7 @@
 			$movies-> description = $request->input
 			('description');
 			$movies ->save();
-			return redirect('/admin')->with('info','Movie 
+			return redirect('/')->with('info','Movie 
 			Saved Succesfuly');
 		}
 		
@@ -48,7 +48,7 @@
 			);
 			Movie::where('id', $id)
 			->update($data );
-			return redirect('/admin')->with('info','Movie Updated Succesfuly');
+			return redirect('/')->with('info','Movie Updated Succesfuly');
 		}
 		
 		public function read($id)
@@ -61,7 +61,7 @@
 		{
 	Movie::where('id', $id)
 	->delete();
-	return redirect('/admin')->with('info','Movie Deleted Succesfuly');
+	return redirect('/')->with('info','Movie Deleted Succesfuly');
 		  
 		}
 	}
