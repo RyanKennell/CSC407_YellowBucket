@@ -44,6 +44,7 @@
 <td>
 <a href='{{ url("/read/{$movies->id}")}}''
 class= "btn btn-primary">Read</a> |
+
 <a href='{{ url("/update/{$movies->id}")}}''
 class="btn btn-success">Update</a> |
 						

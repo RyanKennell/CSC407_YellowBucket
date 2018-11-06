@@ -11,7 +11,7 @@
 					@endif
 		<div class="col-12">
 		
-			<form class="form-horizontal" method="POST" action="{{url('/admin/insert')}}">
+			<form class="form-horizontal" method="POST" action="{{url('/insert')}}">
 				{{csrf_field()}}
 				
 				<fieldset>
