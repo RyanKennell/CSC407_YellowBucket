@@ -34,5 +34,7 @@ Route::resource('/kiosks/(id)', 'KiosksController');
 Route::resource('/movies', 'MovieController');
 Route::get('/movies/{id}', 'MovieController@show');
 
+Route::get('/accountInfo', 'UserController@show');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
