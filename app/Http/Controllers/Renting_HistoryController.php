@@ -2,31 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Rental;
+use App\Renting_History;
 use Illuminate\Http\Request;
 use App\User;
 Use App\Disc;
 
-class RentalController extends Controller
+class Renting_HistoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
+        $history = Renting_History::get()->toArray();
         $rental = User::has('rental')
             ->with('rental')
             ->get()
-            ->toArray();
+          ->toArray();
         return view('rental.index')->with('rental', $rental);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -45,6 +46,7 @@ class RentalController extends Controller
      */
     public function store(Request $request)
     {
+
         // Parse input data
         $user_id = $request->user_id;
         $disc_id = $request->disc_id;
@@ -57,6 +59,7 @@ class RentalController extends Controller
 
         // See the Person model for definition of the rentals() relationship
         $rental->rental()->attach($disc_id, ['checkoutTime' => $checkout_time]);
+
 
         // Return to the list of rentals (you have to go somewhere)
         return redirect()->route('rental.index');
