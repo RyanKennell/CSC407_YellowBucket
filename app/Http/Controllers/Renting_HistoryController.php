@@ -17,11 +17,11 @@ class Renting_HistoryController extends Controller
     public function index()
     {
         // $history = Renting_History::get()->toArray();
-        $rental = User::has('rental')
-            ->with('rental')
+        $rental = User::has('rentals')
+            ->with('rentals')
             ->get()
           ->toArray();
-        return view('rental.index')->with('rental', $rental);
+        return view('rentals.index')->with('rentals', $rental);
     }
 
     /**
@@ -35,7 +35,7 @@ class Renting_HistoryController extends Controller
 
         $disc = Disc::get()->toArray();
 
-        return view('rental.create')->with('user',$user)->with('disc',$disc);
+        return view('rentals.create')->with('user',$user)->with('disc',$disc);
     }
 
     /**
@@ -51,7 +51,7 @@ class Renting_HistoryController extends Controller
         $user_id = $request->user_id;
         $disc_id = $request->disc_id;
 
-        // Assume the rental takes place "now"
+        // Assume the rentals takes place "now"
         $checkout_time = date('Y-m-d H:i:s');
 
         // Get the person
@@ -62,7 +62,7 @@ class Renting_HistoryController extends Controller
 
 
         // Return to the list of rentals (you have to go somewhere)
-        return redirect()->route('rental.index');
+        return redirect()->route('rentals.index');
     }
 
     /**

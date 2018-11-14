@@ -15,8 +15,8 @@ class DiscController extends Controller
      */
     public function index()
     {
-        $disc = Disc::with('people')->get()->toArray();
-        dd($disc);
+       // $disc = Disc::with('people')->get()->toArray();
+        //dd($disc);
 
         $user = User::with('discs')->get()->toArray();
         dd($user);
@@ -86,5 +86,18 @@ class DiscController extends Controller
     public function destroy(Disc $disc)
     {
         //
+    }
+    /**
+     * Add a disc to a particular user
+     * @param $id
+     */
+    public function addUser($id)
+    {
+        $disc = Disc::find(4);
+        $disc->user()->attach($id, ['comment' => 'Good person for the disc!']);
+
+        $disks = Disc::with('users')->get()->toArray();
+        dd($disks);
+
     }
 }
