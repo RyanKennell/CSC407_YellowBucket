@@ -2,42 +2,25 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class User extends Model
 {
-    use Notifiable;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
-        'name', 'address', 'email', 'password',
+        'name', 'address', 'email', 'email_verified_at',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
-
-    public function movies()
+    public function disc()
     {
-        return $this->belongsToMany('App\Movie')
-            ->withPivot('id')
+        return $this->belongsToMany('App\Disc', 'disc_user')
+            ->withPivot('comment')
             ->withTimestamps();
     }
-    public function rental()
+
+    public function rentals()
     {
-        return $this->belongsToMany('App\Renting_History')
-            ->withPivot('id')
+        return $this->belongsToMany('App\Disc', 'disc_rentals')
+            ->withPivot(['rentalDate', 'returnDate'])
             ->withTimestamps();
     }
 }
