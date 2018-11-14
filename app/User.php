@@ -31,13 +31,13 @@ class User extends Authenticatable
     public function movies()
     {
         return $this->belongsToMany('App\Movie')
-            ->withPivot('comment')
+            ->withPivot('id')
             ->withTimestamps();
     }
     public function rental()
     {
         return $this->belongsToMany('App\Renting_History')
-            ->withPivot('comment')
+            ->withPivot('id')
             ->withTimestamps();
     }
 }

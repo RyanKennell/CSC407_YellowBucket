@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
 
 class UserTableSeeder extends Seeder
 {
@@ -13,11 +14,12 @@ class UserTableSeeder extends Seeder
     {
         DB::table('users')->delete();
 
-        Person::create(array(
+        User::create(array(
             'name'=> 'Scott',
             'address'=> '711-Brownstown Rd, Larimer PA',
             'email'=> 'scoot@example.org',
             'email_verified_at'=> 'scoot@example.org',
+            'password'=> 'Dog',
         ));
     }
 }

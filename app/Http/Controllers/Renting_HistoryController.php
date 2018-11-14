@@ -16,7 +16,7 @@ class Renting_HistoryController extends Controller
      */
     public function index()
     {
-        $history = Renting_History::get()->toArray();
+        // $history = Renting_History::get()->toArray();
         $rental = User::has('rental')
             ->with('rental')
             ->get()

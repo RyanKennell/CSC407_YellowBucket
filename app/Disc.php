@@ -12,19 +12,19 @@ class Disc extends Model
     public function movie()
     {
         return $this->belongsToMany('App\Movie')
-            ->withPivot('comment')
+            ->withPivot('movie_id')
             ->withTimestamps();
     }
     public function kiosk()
     {
         return $this->belongsToMany('App\Kiosks')
-            ->withPivot('comment')
+            ->withPivot('kiosk_id')
             ->withTimestamps();
     }
     public function rental()
     {
-        return $this->belongsToMany('App\User')
-            ->withPivot('checkout_time','checkin_time')
+        return $this->belongsToMany('App\User','disc_rentals')
+            ->withPivot('rentalDate','returnDate')
             ->withTimestamps();
     }
 }
