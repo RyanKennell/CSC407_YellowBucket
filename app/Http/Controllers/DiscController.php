@@ -18,8 +18,8 @@ class DiscController extends Controller
        // $disc = Disc::with('people')->get()->toArray();
         //dd($disc);
 
-        $user = User::with('discs')->get()->toArray();
-        dd($user);
+        $users = User::with('discs')->get()->toArray();
+        dd($users);
     }
 
     /**

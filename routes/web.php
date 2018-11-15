@@ -32,8 +32,8 @@ Route::resource('/kiosks', 'KiosksController');
 Route::resource('/kiosks/(id)', 'KiosksController');
 
 //Route::group(['middleware' => 'auth'], function () {
-//    Route::resource('/rentals', 'Renting_historyController');
-  //  Route::resource('/rentals/(id)', 'Renting_historyController');
+  //  Route::resource('/rentals', 'Renting_historyController');
+   // Route::resource('/rentals/(id)', 'Renting_historyController');
 //});
 Route::get('/disks/addUser/{id}', 'DiscController@addUser');
 Route::resource('/disks', 'DiscController');

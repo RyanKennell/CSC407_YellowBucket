@@ -9,12 +9,13 @@
         <form method="POST" action="{{ route('rentals.store') }}">
             @csrf
             <div class="form-group row">
-                <label for="person_id" class="col-2 offset-1 col-form-label text-right">Renter</label>
+                <label for="users_id" class="col-2 offset-1 col-form-label text-right">Name
+                </label>
                 <div class="col-5">
-                    <select id="person_id" name="person_id" class="custom-select">
+                    <select id="users_id" name="users_id" class="custom-select">
 
-                        @foreach($people as $person)
-                            <option value="{{ $person['id'] }}">{{ $person['lastname'] }}, {{ $person['firstname'] }}</option>
+                        @foreach($users as $person)
+                            <option value="{{ $person['id'] }}">{{ $person['name'] }}</option>
                         @endforeach
 
                     </select>
@@ -22,12 +23,12 @@
             </div>
 
             <div class="form-group row">
-                <label for="car_id" class="col-2 offset-1 col-form-label text-right">Car</label>
+                <label for="disc_id" class="col-2 offset-1 col-form-label text-right">Movie and Kiosk</label>
                 <div class="col-5">
-                    <select id="car_id" name="car_id" class="custom-select">
+                    <select id="disc_id" name="disc_id" class="custom-select">
 
-                        @foreach($cars as $car)
-                            <option value="{{ $car['id'] }}">{{ $car['year'] }} {{ $car['make'] }} {{ $car['model'] }}</option>
+                        @foreach($disc as $disks)
+                            <option value="{{ $disks['id'] }}">{{ $disks['movie_id'] }} {{ $disks['kiosk_id'] }}</option>
                         @endforeach
 
                     </select>

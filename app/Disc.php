@@ -21,6 +21,12 @@ class Disc extends Model
             ->withPivot('kiosk_id')
             ->withTimestamps();
     }
+    public function users()
+    {
+        return $this->belongsToMany('App\User', 'disc_User')
+            ->withPivot('comment')
+            ->withTimestamps();
+    }
     public function rental()
     {
         return $this->belongsToMany('App\User','disc_rentals')

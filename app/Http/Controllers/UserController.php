@@ -82,4 +82,13 @@ class UserController extends Controller
     {
         //
     }
+    public function addUser($id)
+    {
+        $user = User::find(4);
+        $user->disc()->attach($id, ['comment' => 'Good person for the disk!']);
+
+        $users = User::with('disc')->get()->toArray();
+        dd($users);
+
+    }
 }

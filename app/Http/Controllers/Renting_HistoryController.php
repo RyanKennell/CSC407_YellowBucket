@@ -16,12 +16,13 @@ class Renting_HistoryController extends Controller
      */
     public function index()
     {
-        // $history = Renting_History::get()->toArray();
-        $rental = User::has('rentals')
-            ->with('rentals')
-            ->get()
-          ->toArray();
-        return view('rentals.index')->with('rentals', $rental);
+        $history = Renting_History::get()->toArray();
+        dd($history);
+      //  $rental = User::has('rentals')
+       //     ->with('rentals')
+        //    ->get()
+        //  ->toArray();
+        //return view('rentals.index')->with('rentals', $rental);
     }
 
     /**
