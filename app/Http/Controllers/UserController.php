@@ -59,5 +59,7 @@ class UserController extends Controller
         DB::table('users')
             ->where('id', $user_id)
             ->update(['address' => $address]);
+
+        return redirect('/accountInfo');
     }
 }
