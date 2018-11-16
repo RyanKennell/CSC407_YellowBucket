@@ -26,7 +26,7 @@ class CreateMoviesTable extends Migration
             $table->integer('genreID')->nullable(); 
             $table->boolean('onDVD')->nullable();
             $table->boolean('onBlueRay')->nullable();
-             $table->string('Action', 1024)->nullable();
+            $table->string('Action', 1024)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

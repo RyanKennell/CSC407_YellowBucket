@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
  return view('home');
-});
+}); */
 
 
 
@@ -21,12 +21,16 @@ Route::get('/', function () {
 
 Route::resource('/people', 'PersonController');
 Route::resource('/kiosks', 'KiosksController');
+Route::resource('/user', 'UsersController');
+Route::resource('/renting_history', 'RentalhistoryController');
 
 Auth::routes();
 Route::get('/', 'CreatemovieController@home');
 Route::get('/create', function (){
 	return view('createmovie');
 });
+	
+	
 	
 
 Route::post('/insert', 'CreatemovieController@add');

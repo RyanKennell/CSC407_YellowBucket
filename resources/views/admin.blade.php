@@ -25,7 +25,7 @@
 <th scope="col">onDVD</th>
 <th scope="col">onBlueRay</th>
 <th scope="col">Action</th>
-</tr>
+
 </thead>
 <tbody>
 @if(count($movies) > 0)
