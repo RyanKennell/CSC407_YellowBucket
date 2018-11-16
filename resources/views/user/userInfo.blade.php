@@ -92,7 +92,7 @@
                     </tbody>
                 </table>
 
-                <h1> Movies Rented</h1>
+                <h1> Movies Rented History</h1>
 
                 <table class="table">
                     <thead>
