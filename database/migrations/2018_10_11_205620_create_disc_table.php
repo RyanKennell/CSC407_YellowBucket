@@ -13,7 +13,7 @@ class CreateDiscTable extends Migration
      */
     public function up()
     {
-        Schema::create('disc', function (Blueprint $table) {
+        Schema::create('discs', function (Blueprint $table) {
             $table->increments('id');
 			
 			//Foreign Keys
