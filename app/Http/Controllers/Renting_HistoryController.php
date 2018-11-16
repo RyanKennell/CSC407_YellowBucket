@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Renting_History;
+use App\Rentalhistory;
 use Illuminate\Http\Request;
 use App\User;
-Use App\Disc;
+use App\Movie;
+use App\Disc;
+use Illuminate\Support\Facades\DB;
 
 class Renting_HistoryController extends Controller
 {
@@ -16,13 +18,16 @@ class Renting_HistoryController extends Controller
      */
     public function index()
     {
-        $history = Renting_History::get()->toArray();
-        dd($history);
-      //  $rental = User::has('rentals')
-       //     ->with('rentals')
-        //    ->get()
-        //  ->toArray();
-        //return view('rentals.index')->with('rentals', $rental);
+        $rentalhistory = Rentalhistory::all();
+
+        $users = User::get()->toArray();
+        $discs = Disc::get()->toArray();
+        $movies = Movie::get()->toArray();
+
+        $data = array($rentalhistory, $users, $discs, $movies);
+        //dd($users);
+        return view('rentalhistory',['data' =>
+            $data]);
     }
 
     /**
@@ -47,67 +52,23 @@ class Renting_HistoryController extends Controller
      */
     public function store(Request $request)
     {
+        $input = $request->except('_token');
 
-        // Parse input data
-        $user_id = $request->user_id;
-        $disc_id = $request->disc_id;
+        $rental = new Rentalhistory($input);
+        $rental->save();
+        $users = User::get()->toArray();
+        $discs = Disc::get()->toArray();
+        $movies = Movie::get()->toArray();
 
-        // Assume the rentals takes place "now"
-        $checkout_time = date('Y-m-d H:i:s');
-
-        // Get the person
-        $rental = User::find($user_id);
-
-        // See the Person model for definition of the rentals() relationship
-        $rental->rental()->attach($disc_id, ['checkoutTime' => $checkout_time]);
-
-
+        $data = array($rental, $users, $discs, $movies);
+        dd($data);
         // Return to the list of rentals (you have to go somewhere)
-        return redirect()->route('rentals.index');
+        return view('rentalhistory',['data'=> $data]);
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Rental  $rental
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Rental $rental)
+    public function update($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Rental  $rental
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Rental $rental)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Rental  $rental
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Rental $rental)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Rental  $rental
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Rental $rental)
-    {
-        //
+        $rental = Rentalhistory::find($id);
+        return view('updaterentalhistory', ['rental' =>
+            $rental]);
     }
 }

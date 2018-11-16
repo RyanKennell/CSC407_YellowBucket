@@ -94,9 +94,9 @@ class DiscController extends Controller
     public function addUser($id)
     {
         $disc = Disc::find(4);
-        $disc->user()->attach($id, ['comment' => 'Good person for the disc!']);
+        $disc->user()->attach($id, ['comment' => 'Good person for the Movie!']);
 
-        $disks = Disc::with('users')->get()->toArray();
+        $disks = Disc::with('user')->get()->toArray();
         dd($disks);
 
     }

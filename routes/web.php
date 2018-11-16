@@ -32,14 +32,15 @@ Route::resource('/kiosks', 'KiosksController');
 Route::resource('/kiosks/(id)', 'KiosksController');
 
 //Route::group(['middleware' => 'auth'], function () {
-  //  Route::resource('/rentals', 'Renting_historyController');
-   // Route::resource('/rentals/(id)', 'Renting_historyController');
+    Route::resource('/rentals', 'Renting_historyController');
+    Route::resource('/rentals/(id)', 'Renting_historyController');
+    Route::get('/rentals/update/{id}','Renting_historyController@update');
 //});
 Route::get('/disks/addUser/{id}', 'DiscController@addUser');
 Route::resource('/disks', 'DiscController');
 
-Route::resource('/rentals', 'DiscRentalController');
-Route::resource('/rentals/(id)', 'DiscRentalController');
+//Route::resource('/rentals', 'DiscRentalController');
+//Route::resource('/rentals/(id)', 'DiscRentalController');
 
 Route::resource('/movies', 'MovieController');
 Route::get('/movies/{id}', 'MovieController@show');

@@ -4,21 +4,20 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Renting_History extends Model
+class Rentalhistory extends Model
 {
-    protected $fillable = [
-        'checkout_time', 'checkin_time', 'user_id','disc_id',
-    ];
+    protected $table = "renting_history";
+    protected $fillable =['users_id','disc_id'];
     public function disc()
     {
         return $this->belongsToMany('App\Disc')
-            ->withPivot('comment')
+            ->withPivot('disc_id')
             ->withTimestamps();
     }
     public function user()
     {
         return $this->belongsToMany('App\User')
-            ->withPivot('comment')
+            ->withPivot('user_id')
             ->withTimestamps();
     }
 

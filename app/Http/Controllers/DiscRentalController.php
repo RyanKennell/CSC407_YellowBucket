@@ -16,15 +16,15 @@ class DiscRentalController extends Controller
      */
     public function index()
     {
-        //$history = DiscRental::get()->toArray();
-        //dd($history);
+        $history = DiscRental::get()->toArray();
+        dd($history);
         // Get everybody that has rented a car
-        $rentals = User::has('rentals')   // has() only returns rows that have entries in the pivot table - in this case they rented a car
-        ->with('rentals')       // we need to include all of the rentals data
-        ->get()                 // get the records
-        ->toArray();            // return as an array
+        //$rentals = User::has('rentals')   // has() only returns rows that have entries in the pivot table - in this case they rented a car
+        //->with('rentals')       // we need to include all of the rentals data
+        //->get()                 // get the records
+        //->toArray();            // return as an array
 
-        return view('rentals.index')->with('rentals', $rentals);
+        //return view('rentals.index')->with('rentals', $rentals);
     }
 
     /**

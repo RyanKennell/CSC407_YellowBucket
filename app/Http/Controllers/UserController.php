@@ -12,9 +12,11 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index(){
+        $users = User::all();
+        //dd($users);
+        return view('users',['users' =>
+            $users]);
     }
 
     /**
@@ -85,7 +87,7 @@ class UserController extends Controller
     public function addUser($id)
     {
         $user = User::find(4);
-        $user->disc()->attach($id, ['comment' => 'Good person for the disk!']);
+        $user->disc()->attach($id, ['comment' => 'Good person for the Movie!']);
 
         $users = User::with('disc')->get()->toArray();
         dd($users);

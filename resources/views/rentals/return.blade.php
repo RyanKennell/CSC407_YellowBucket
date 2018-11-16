@@ -38,9 +38,6 @@
 
             <div class="form-group row">
                 <div class="offset-3 col-5">
-                    <button name="submit" type="submit" class="btn btn-primary">Grab Rental</button>
+                    <button name="submit" type="submit" class="btn btn-primary">return Rental</button>
                 </div>
             </div>
-        </form>
-    </div>
-@endsection

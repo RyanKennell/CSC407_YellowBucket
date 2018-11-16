@@ -13,9 +13,9 @@
         <thead>
         <tr>
             <th>Name</th>
-            <th>Disc</th>
-            <th>Rental Date</th>
-            <th>Return Date</th>
+            <th>Disc and Kiosks</th>
+            <th>Check out</th>
+            <th>Check In</th>
         </tr>
         </thead>
         <tbody>
@@ -25,10 +25,10 @@
             {{-- Loop through all of the cars that a person has rented --}}
             @foreach($rental['rentals'] as $disc)
                 <tr>
-                    <td>{{ $rental['lastname'] }}, {{ $rental['firstname'] }}</td>
-                    <td>{{ $disc['make'] }} {{ $disc['model'] }}</td>
-                    <td>{{ $disc['pivot']['rentalDate'] }}</td>
-                    <td>{{ $disc['pivot']['returnDate'] }}</td>
+                    <td>{{ $rental['name'] }}</td>
+                    <td>{{ $disc['movie_id'] }} {{ $disc['kiosk_id'] }}</td>
+                    <td>{{ $disc['pivot']['checkout_time'] }}</td>
+                    <td>{{ $disc['pivot']['checkin_time'] }}</td>
                 </tr>
             @endforeach
         @endforeach

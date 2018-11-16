@@ -6,9 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Disc extends Model
 {
-    protected $fillable = [
-        'movie_id', 'kiosk_id', 'disc_type',
-    ];
+    protected $table = "discs";
     public function movie()
     {
         return $this->belongsToMany('App\Movie')
@@ -29,8 +27,8 @@ class Disc extends Model
     }
     public function rental()
     {
-        return $this->belongsToMany('App\User','disc_rentals')
-            ->withPivot('rentalDate','returnDate')
+        return $this->belongsToMany('App\User')
+            ->withPivot('checkout_time','checkin_time')
             ->withTimestamps();
     }
 }
