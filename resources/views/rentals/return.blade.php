@@ -6,7 +6,7 @@
             @include('layouts.errors')
         </div>
         {{-- action is pointed to the named route people.store which translates to a POST to /people --}}
-        <form method="POST" action="{{ route('rentals.store') }}">
+        <form method="POST" action="{{ route('rentals.update') }}">
             @csrf
             <div class="form-group row">
                 <label for="users_id" class="col-2 offset-1 col-form-label text-right">Name
@@ -14,8 +14,8 @@
                 <div class="col-5">
                     <select id="users_id" name="users_id" class="custom-select">
 
-                        @foreach($user as $person)
-                            <option value="{{ $person['id'] }}">{{ $person['name'] }}</option>
+                        @foreach($user as $users)
+                            <option value="{{ $users['id'] }}">{{ $users['name'] }}</option>
                         @endforeach
 
                     </select>
@@ -27,8 +27,8 @@
                 <div class="col-5">
                     <select id="disc_id" name="disc_id" class="custom-select">
 
-                        @foreach($disc as $disks)
-                            <option value="{{ $disks['id'] }}">{{ $disks['movie_id'] }} {{ $disks['kiosk_id'] }}</option>
+                        @foreach($disc as $discs)
+                            <option value="{{ $discs['id'] }}">{{ $discs['movie_id'] }} {{ $discs['kiosk_id'] }}</option>
                         @endforeach
 
                     </select>
@@ -38,6 +38,9 @@
 
             <div class="form-group row">
                 <div class="offset-3 col-5">
-                    <button name="submit" type="submit" class="btn btn-primary">return Rental</button>
+                    <button name="submit" type="submit" class="btn btn-primary">Return Rental</button>
                 </div>
             </div>
+        </form>
+    </div>
+@endsection

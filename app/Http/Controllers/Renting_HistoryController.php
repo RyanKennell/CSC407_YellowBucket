@@ -29,6 +29,32 @@ class Renting_HistoryController extends Controller
         return view('rentalhistory',['data' =>
             $data]);
     }
+    public function show($id)
+    {
+        $rentalhistory = Rentalhistory::get()->toArray();
+
+        $users = User::get()->toArray();
+        $discs = Disc::get()->toArray();
+        $movies = Movie::get()->toArray();
+        for($i = 0; $i < count($rentalhistory); $i ++)
+        {
+            if($id == $rentalhistory[$i]['id'])
+            {
+                for($y = 0; $y < count($users); $y ++)
+                {
+                    for($z = 0; $z < count($discs); $z ++)
+                    {
+                        if ($rentalhistory[$i]['id'] == $users[$y]['name']) {
+                            $data = array($users[$i], $movies[$y], $discs[$z]);
+                            return view('rental.return')->with('data', $data);
+                        }
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -67,8 +93,9 @@ class Renting_HistoryController extends Controller
     }
     public function update($id)
     {
-        $rental = Rentalhistory::find($id);
-        return view('updaterentalhistory', ['rental' =>
-            $rental]);
+        $rentals = Rentalhistory::find($id);
+        return view('rental.return', ['rentals' => $rentals]);
+
     }
+
 }
