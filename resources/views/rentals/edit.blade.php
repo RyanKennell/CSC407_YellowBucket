@@ -6,7 +6,7 @@
             @include('layouts.errors')
         </div>
         {{-- action is pointed to the named route people.store which translates to a POST to /people --}}
-        <form method="POST" action="{{ route('rentals.update' , $rentals['id']) }}">
+        <form method="POST" action="{{ action('Renting_HistoryController@update', '$id') }}">
             @csrf
             <div class="form-group row">
                 <label for="users_id" class="col-2 offset-1 col-form-label text-right">Name
@@ -38,7 +38,7 @@
 
             <div class="form-group row">
                 <div class="offset-3 col-5">
-                    <button name="submit" type="submit" class="btn btn-primary">Return Rental</button>
+                    <button name="submit" type="submit" class="btn btn-primary">Grab Rental</button>
                 </div>
             </div>
         </form>

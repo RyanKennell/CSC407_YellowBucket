@@ -91,11 +91,21 @@ class Renting_HistoryController extends Controller
         // Return to the list of rentals (you have to go somewhere)
         return view('rentalhistory',['data'=> $data]);
     }
-    public function update($id)
+    public function edit($id)
     {
         $rentals = Rentalhistory::find($id);
-        return view('rental.return', ['rentals' => $rentals]);
-
+        return view('rentals.edit', compact('rentals', 'id'));
     }
-
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'users_id'    =>  'required',
+            'disc_id'     =>  'required'
+        ]);
+        $rentals = Rentalhistory::find($id);
+        $rentals -> users_id = $request->get('users_id');
+        $rentals -> disc_id = $request->get('disc_id');
+        $rentals->save();
+        return redirect()->route('rentals.return')->with('success', 'data Updated');
+    }
 }
