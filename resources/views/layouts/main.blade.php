@@ -1,5 +1,5 @@
 <!!DOCTYPE html>
-<html?
+<html>
 <head>
 	<title>Movies</title>
 	<link rel="stylesheet" type="text/css" href="{{ url('css/bootstrap.css') }}">
@@ -24,7 +24,17 @@
       <li class="nav-item">
         <a class="nav-link" href="{{'/create'}}">Create</a>
       </li>
-     
+        <li class="nav-item">
+
+            <a class="nav-link" href="{{'/admin/user'}}">View Customers</a>
+
+        </li>
+
+        <li class="nav-item">
+
+            <a class="nav-link" href="{{'/admin/renting_history'}}">Rental History</a>
+
+        </li>
      
     </ul>
 

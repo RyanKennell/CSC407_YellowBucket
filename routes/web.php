@@ -22,6 +22,8 @@ Route::get('/create', function (){
 	return view('createmovie');
 });
 
+Route::resource('/admin/user', 'UsersController');
+Route::resource('/admin/renting_history', 'RentalhistoryController');
 Route::post('/admin/insert', 'CreatemovieController@add');
 Route::get('/admin/update/{id}', 'CreatemovieController@update');
 Route::post('/admin/edit/{id}', 'CreatemovieController@edit');
