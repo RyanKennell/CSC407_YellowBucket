@@ -33,6 +33,9 @@ Route::get('/admin/delete/{id}', 'CreatemovieController@delete');
 Route::resource('/kiosks', 'KiosksController');
 Route::resource('/kiosks/(id)', 'KiosksController');
 
+Route::resource('/rental', 'RentalController');
+Route::resource('/rental/(id)', 'RentalController');
+
 Route::resource('/movies', 'MovieController');
 Route::get('/movies/{id}', 'MovieController@show');
 
