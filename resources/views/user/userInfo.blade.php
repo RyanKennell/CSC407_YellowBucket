@@ -78,7 +78,7 @@
                                     @for ($c = 0; $c < count($data[1]); $c++)
                                         @if($data[3][$r]['movie_id'] == $data[1][$c]['id'])
                                             <td>
-                                                <img border="5" alt="cover photo" src="/images/{{$data[1][$r]['coverPhoto'] }}" width="75" height="125">
+                                                <img border="5" alt="cover photo" src="/images/{{$data[1][$c]['coverPhoto'] }}" width="75" height="125">
                                                 {{ $data[1][$c]['title'] }}
                                             </td>
                                         @endif
