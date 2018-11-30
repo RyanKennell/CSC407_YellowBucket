@@ -22,6 +22,8 @@ Route::get('/create', function (){
 	return view('createmovie');
 });
 
+Route::resource('/admin/user', 'UsersController');
+Route::resource('/admin/renting_history', 'RentalhistoryController');
 Route::post('/admin/insert', 'CreatemovieController@add');
 Route::get('/admin/update/{id}', 'CreatemovieController@update');
 Route::post('/admin/edit/{id}', 'CreatemovieController@edit');
@@ -44,6 +46,10 @@ Route::resource('/disks', 'DiscController');
 
 Route::resource('/movies', 'MovieController');
 Route::get('/movies/{id}', 'MovieController@show');
+
+Route::post('/accountInfo', 'UserController@store');
+Route::get('/accountInfo', 'UserController@show');
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
