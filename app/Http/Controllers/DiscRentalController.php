@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Rental;
+use App\DiscRental;
 use Illuminate\Http\Request;
+use App\Disc;
 use App\User;
-Use App\Disc;
 
-class RentalController extends Controller
+class DiscRentalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +16,15 @@ class RentalController extends Controller
      */
     public function index()
     {
-        $rental = User::has('rental')
-            ->with('rental')
-            ->get()
-            ->toArray();
-        return view('rental.index')->with('rental', $rental);
+        $history = DiscRental::get()->toArray();
+        dd($history);
+        // Get everybody that has rented a car
+        //$rentals = User::has('rentals')   // has() only returns rows that have entries in the pivot table - in this case they rented a car
+        //->with('rentals')       // we need to include all of the rentals data
+        //->get()                 // get the records
+        //->toArray();            // return as an array
+
+        //return view('rentals.index')->with('rentals', $rentals);
     }
 
     /**
@@ -30,11 +34,14 @@ class RentalController extends Controller
      */
     public function create()
     {
+        // Get the Users
         $user = User::get()->toArray();
 
+        // Get the Cars
         $disc = Disc::get()->toArray();
 
-        return view('rental.create')->with('user',$user)->with('disc',$disc);
+        // return the create rentals view with the lists of people and cars
+        return view('rentals.create')->with('users', $user)->with('disc', $disc);
     }
 
     /**
@@ -46,29 +53,29 @@ class RentalController extends Controller
     public function store(Request $request)
     {
         // Parse input data
-        $user_id = $request->user_id;
+        $users_id = $request->users_id;
         $disc_id = $request->disc_id;
 
-        // Assume the rental takes place "now"
-        $checkout_time = date('Y-m-d H:i:s');
+        // Assume the rentals takes place "now"
+        $rental_date = date('Y-m-d H:i:s');
 
         // Get the person
-        $rental = User::find($user_id);
+        $rental = User::find($users_id);
 
         // See the Person model for definition of the rentals() relationship
-        $rental->rental()->attach($disc_id, ['checkoutTime' => $checkout_time]);
+        $rental->rentals()->attach($disc_id, ['rentalDate' => $rental_date]);
 
         // Return to the list of rentals (you have to go somewhere)
-        return redirect()->route('rental.index');
+        return redirect()->route('rentals.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Rental  $rental
+     * @param  \App\DiscRental  $discRental
      * @return \Illuminate\Http\Response
      */
-    public function show(Rental $rental)
+    public function show(DiscRental $discRental)
     {
         //
     }
@@ -76,10 +83,10 @@ class RentalController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Rental  $rental
+     * @param  \App\DiscRental  $discRental
      * @return \Illuminate\Http\Response
      */
-    public function edit(Rental $rental)
+    public function edit(DiscRental $discRental)
     {
         //
     }
@@ -88,10 +95,10 @@ class RentalController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Rental  $rental
+     * @param  \App\DiscRental  $discRental
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rental $rental)
+    public function update(Request $request, DiscRental $discRental)
     {
         //
     }
@@ -99,10 +106,10 @@ class RentalController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Rental  $rental
+     * @param  \App\DiscRental  $discRental
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rental $rental)
+    public function destroy(DiscRental $discRental)
     {
         //
     }
