@@ -93,4 +93,18 @@ class PersonController extends Controller
     {
         //
     }
+
+    /**
+     * Add a car to a particular person
+     * @param $id
+     */
+    public function addUser($id)
+    {
+        $disc = Disc::find(4);
+        $disc->user()->attach($id, ['comment' => 'Good person for the disk!']);
+
+        $disks = disc::with('user')->get()->toArray();
+        dd($disks);
+
+    }
 }
