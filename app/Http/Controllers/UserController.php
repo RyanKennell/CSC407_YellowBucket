@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use App\Renting_history;
+use Illuminate\Support\Facades\Auth;
+use App\Movie;
+use App\Disc;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -12,10 +17,11 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
+    public function index()
+    {
         $users = User::all();
         //dd($users);
-        return view('users',['users' =>
+        return view('users', ['users' =>
             $users]);
     }
 
@@ -32,79 +38,41 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        $user_id = Auth::user()->id;
+
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $address = $request->input('address');
+
+        //Update the name field
+        DB::table('users')
+            ->where('id', $user_id)
+            ->update(['name' => $name]);
+
+        //Update the email field
+        DB::table('users')
+            ->where('id', $user_id)
+            ->update(['email' => $email]);
+
+        //Update the address field
+        DB::table('users')
+            ->where('id', $user_id)
+            ->update(['address' => $address]);
+
+        return redirect('/accountInfo');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\User $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(User $user)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, User $user)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(User $user)
-    {
-        //
-    }
-    public function addUser($id)
-    {
-        $user = User::find(4);
-        $user->disc()->attach($id, ['comment' => 'Good person for the Movie!']);
-
-        $users = User::with('disc')->get()->toArray();
-        dd($users);
-
-=======
-use App\Renting_history;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\User;
-use App\Movie;
-use App\Disc;
-use Illuminate\Support\Facades\DB;
-
-//Author @ Ryan Kennell
-
-class UserController extends Controller
-{
     public function show()
     {
         $current_rentals = Renting_history::get()
@@ -128,30 +96,46 @@ class UserController extends Controller
         return view('user.userInfo')->with('data', $data);
     }
 
-    public function store(Request $request)
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\User $user
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(User $user)
     {
-        $user_id = Auth::user()->id;
+        //
+    }
 
-        $name = $request->input('name');
-        $email = $request->input('email');
-        $address = $request->input('address');
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\User $user
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, User $user)
+    {
+        //
+    }
 
-        //Update the name field
-        DB::table('users')
-            ->where('id', $user_id)
-            ->update(['name' => $name]);
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\User $user
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(User $user)
+    {
+        //
+    }
 
-        //Update the email field
-        DB::table('users')
-        ->where('id', $user_id)
-        ->update( ['email' => $email]);
+    public function addUser($id)
+    {
+        $user = User::find(4);
+        $user->disc()->attach($id, ['comment' => 'Good person for the Movie!']);
 
-        //Update the address field
-        DB::table('users')
-            ->where('id', $user_id)
-            ->update(['address' => $address]);
-
-        return redirect('/accountInfo');
->>>>>>> refs/remotes/origin/master
+        $users = User::with('disc')->get()->toArray();
+        dd($users);
     }
 }
