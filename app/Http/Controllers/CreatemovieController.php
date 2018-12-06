@@ -12,7 +12,7 @@
 			return view('admin', ['movies' => $movies]);
 		}
 		
-		
+		//hi
 		public function add(Request $request)
 		{
 			$this->validate($request,[
