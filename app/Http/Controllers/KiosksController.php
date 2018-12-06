@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateKiosksValidation;
 use App\Kiosks;
+use App\Inventory;
+use App\Movie;
 use Illuminate\Http\Request;
+
 
 class KiosksController extends Controller
 {
@@ -19,6 +22,11 @@ class KiosksController extends Controller
 
         return view('kiosks.index')->with('kiosks', $k);
     }
+    public function gmaps()
+    {
+        $locations = DB::table('kiosks')->get();
+        return view('kiosks',compact('locations'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -27,7 +35,7 @@ class KiosksController extends Controller
      */
     public function create()
     {
-        //
+        return view('kiosks.create');
     }
 
     /**
@@ -53,12 +61,33 @@ class KiosksController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Kiosks  $kiosks
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return \Illuminate\Http\Response By Brandon Lagorga
+     * By Brandon Lagorga
+     * @internal param Kiosks $kiosks
      */
-    public function show(Kiosks $kiosks)
+    public function show($id)
     {
-        //
+        $Kiosks = Kiosks::get()->toArray();
+        $inventory = Inventory::get()->toArray();
+        $movie = Movie::get()->toArray();
+        for($i = 0; $i < count($Kiosks); $i ++)
+        {
+            if($id == $Kiosks[$i]['id'])
+            {
+                for($y = 0; $y < count($inventory); $y ++)
+                {
+                    for($z = 0; $z < count($movie); $z ++)
+                    {
+                        if ($inventory[$i]['kiosks_id'] == $Kiosks[$y]['id']) {
+                            $data = array($Kiosks[$i], $inventory[$y], $movie[$z]);
+                            return view('kiosks.kiosksinfo')->with('data', $data);
+                        }
+                    }
+                }
+            }
+        }
+        return null;
     }
 
     /**

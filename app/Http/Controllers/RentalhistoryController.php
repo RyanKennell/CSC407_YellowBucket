@@ -3,6 +3,7 @@
 
 
 namespace App\Http\Controllers;
+use App\Renting_history;
 use Illuminate\Http\Request;
 use App\Rentalhistory;
 use App\User;
@@ -12,7 +13,7 @@ use App\Movie;
 class RentalhistoryController extends Controller
 {
 	public function index(){
-		$rentalhistory = Rentalhistory::all();
+		$rentalhistory = Renting_history::get()->toArray();
 		
 		$users = User::get()->toArray();
 		$discs = Disc::get()->toArray();
@@ -24,6 +25,6 @@ class RentalhistoryController extends Controller
 			$data]);
 
 
-
+		
 	}
 }

@@ -2,7 +2,7 @@
 
 <!!DOCTYPE html>
 
-<html?
+<html>
 
 <head>
 
@@ -55,13 +55,13 @@
 	  
 	   <li class="nav-item">
 
-        <a class="nav-link" href="{{'/user'}}">View Customers</a>
+        <a class="nav-link" href="{{'/admin/user'}}">View Customers</a>
 
       </li>
 
       <li class="nav-item">
 
-        <a class="nav-link" href="{{'/renting_history'}}">Rental History</a>
+        <a class="nav-link" href="{{'/admin/renting_history'}}">Rental History</a>
 
       </li>
 
@@ -74,3 +74,5 @@
   </div>
 
 </nav>
+</body>
+</html>

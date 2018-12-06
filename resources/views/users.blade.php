@@ -8,10 +8,10 @@
 	<div   class="row">
 <div   class="col-md-6-lg-6">
 	
-	<table class="table table-hover ">
-	
 	</div>
 </div>
+		<table class="table table-hover ">
+
 <thead>
 <th scope="col">id</th>
 <th scope="col">name</th>
@@ -24,14 +24,13 @@
 <tbody>
 
    @foreach($users as $user)
-               
 <tr>
 <td>{{$user->id}}</td>
 <td>{{$user->name}}</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>{{$user->address}}</td>
+<td>{{$user->email}}</td>
+<td>{{$user->email_verified_at}}</td>
+<td>{{$user->password}}</td>
 </tr>
    @endforeach 
 </tbody>

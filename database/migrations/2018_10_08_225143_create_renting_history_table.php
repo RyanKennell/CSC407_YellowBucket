@@ -13,7 +13,7 @@ class CreateRentingHistoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('renting_history', function (Blueprint $table) {
+        Schema::create('renting_histories', function (Blueprint $table) {
             $table->increments('id');
 
             $table->timestamp( 'checkout_time');

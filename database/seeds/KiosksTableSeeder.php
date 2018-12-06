@@ -15,7 +15,7 @@ class KiosksTableSeeder extends Seeder
         DB::table('kiosks')->delete();
 
         Kiosks::create(array(
-           'location' =>'Giant Eagle, Chippewa',
+            'location' =>'Giant Eagle, Chippewa',
             'address' =>'Giant Eagle Supermarket, 2650 Constitution Blvd, Beaver Falls, PA 15010',
         ));
     }

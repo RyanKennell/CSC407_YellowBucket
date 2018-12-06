@@ -1,6 +1,5 @@
-
+@extends('layouts.main')
 @section('content')
-@include('inc.header')
 <div class="container">
 	<div class="row">
 		<legend>Read Movie</legend>
@@ -10,4 +9,5 @@
 		<p>{{$movies->description}}</p>
 	</div>
 </div>
-@include('inc.footer')
+
+@endsection

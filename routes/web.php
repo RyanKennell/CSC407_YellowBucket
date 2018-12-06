@@ -11,31 +11,45 @@
 |
 */
 
-/* Route::get('/', function () {
- return view('home');
-}); */
-
-
-
-
-
-Route::resource('/people', 'PersonController');
-Route::resource('/kiosks', 'KiosksController');
-Route::resource('/user', 'UsersController');
-Route::resource('/renting_history', 'RentalhistoryController');
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Auth::routes();
-Route::get('/', 'CreatemovieController@home');
+
+Route::get('/admin', 'CreatemovieController@admin');
 Route::get('/create', function (){
 	return view('createmovie');
 });
-	
-	
-	
 
-Route::post('/insert', 'CreatemovieController@add');
-Route::get('/update/{id}', 'CreatemovieController@update');
-Route::post('/edit/{id}', 'CreatemovieController@edit');
-Route::get('/read/{id}', 'CreatemovieController@read');
-Route::get('/delete/{id}', 'CreatemovieController@delete');
-///trey was here 
+Route::resource('/admin/user', 'UsersController');
+Route::resource('/admin/renting_history', 'RentalhistoryController');
+Route::post('/admin/insert', 'CreatemovieController@add');
+Route::get('/admin/update/{id}', 'CreatemovieController@update');
+Route::post('/admin/edit/{id}', 'CreatemovieController@edit');
+Route::get('/admin/read/{id}', 'CreatemovieController@read');
+Route::get('/admin/delete/{id}', 'CreatemovieController@delete');
+
+Route::resource('/kiosks', 'KiosksController');
+Route::resource('/kiosks/(id)', 'KiosksController');
+
+//Route::group(['middleware' => 'auth'], function () {
+    Route::resource('/rentals', 'Renting_historyController');
+    Route::resource('/rentals/(id)', 'Renting_historyController');
+    Route::get('/rentals/update/{id}','Renting_historyController@update');
+//});
+Route::get('/disks/addUser/{id}', 'DiscController@addUser');
+Route::resource('/disks', 'DiscController');
+
+//Route::resource('/rentals', 'DiscRentalController');
+//Route::resource('/rentals/(id)', 'DiscRentalController');
+
+Route::resource('/movies', 'MovieController');
+Route::get('/movies/{id}', 'MovieController@show');
+
+Route::post('/accountInfo', 'UserController@store');
+Route::get('/accountInfo', 'UserController@show');
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+

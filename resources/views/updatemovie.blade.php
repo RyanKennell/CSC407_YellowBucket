@@ -3,7 +3,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<form class="form-horizontal" method="POST" action="{{url('/edit', array($movies->id))}}">
+			<form class="form-horizontal" method="POST" action="{{url('/admin/edit', array($movies->id))}}">
 				{{csrf_field()}}
 				<fieldset>
 					<legend>Legend</legend>
@@ -35,7 +35,7 @@
 					<div class="form-group">
 						<div class="col-lg-10 col-offset-2">
 							<button class="btn btn-primary" type="submit">Update</button>
-							<a href="{{'/'}}" class= "btn btn-primary">Back</a>
+							<a href="{{'/admin'}}" class= "btn btn-primary">Back</a>
 						</div>
 					</fieldset>
 				</form>
