@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Disc;
+use App\DiscUser;
 use Illuminate\Http\Request;
-use App\User;
 
-class DiscController extends Controller
+class DiscUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +14,7 @@ class DiscController extends Controller
      */
     public function index()
     {
-       // $disc = Disc::with('people')->get()->toArray();
-        //dd($disc);
-
-        $users = User::with('discs')->get()->toArray();
-        dd($users);
+        //
     }
 
     /**
@@ -46,10 +41,10 @@ class DiscController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Disc  $disc
+     * @param  \App\DiscUser  $discUser
      * @return \Illuminate\Http\Response
      */
-    public function show(Disc $disc)
+    public function show(DiscUser $discUser)
     {
         //
     }
@@ -57,10 +52,10 @@ class DiscController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Disc  $disc
+     * @param  \App\DiscUser  $discUser
      * @return \Illuminate\Http\Response
      */
-    public function edit(Disc $disc)
+    public function edit(DiscUser $discUser)
     {
         //
     }
@@ -69,10 +64,10 @@ class DiscController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Disc  $disc
+     * @param  \App\DiscUser  $discUser
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Disc $disc)
+    public function update(Request $request, DiscUser $discUser)
     {
         //
     }
@@ -80,24 +75,11 @@ class DiscController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Disc  $disc
+     * @param  \App\DiscUser  $discUser
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Disc $disc)
+    public function destroy(DiscUser $discUser)
     {
         //
-    }
-    /**
-     * Add a disc to a particular user
-     * @param $id
-     */
-    public function addUser($id)
-    {
-        $disc = Disc::find(4);
-        $disc->user()->attach($id, ['comment' => 'Good person for the Movie!']);
-
-        $disks = Disc::with('user')->get()->toArray();
-        dd($disks);
-
     }
 }

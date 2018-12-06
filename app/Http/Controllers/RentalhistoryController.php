@@ -25,6 +25,6 @@ class RentalhistoryController extends Controller
 			$data]);
 
 
-
+		
 	}
 }
