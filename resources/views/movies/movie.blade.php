@@ -21,11 +21,11 @@
         @endif
 
          <div class="pt-3 col-lg-2 text-center" >
-            <div class="img-thumbnail">
+            <div class="">
                 <a href="http://csc407dev.com/movies/{{ $movies[$i]['id'] }}">
                     <img border="5" alt="cover photo" src="/images/{{$movies[$i]['coverPhoto'] }}" width="150" height="250">
                 </a>
-                <div class="caption">
+                <div class="shadow-lg">
                     <h3>{{ $movies[$i]['title'] }}</h3>
                     @if(strlen($movies[$i]['description']) > 250)
                         <p> {{ substr($movies[$i]['description'], 0, 250) }}</p>

@@ -6,12 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Disc extends Model
 {
-<<<<<<< HEAD
-    //
-=======
     protected $fillable = [
         'movie_id', 'kiosk_id', 'disc_type',
     ];
+
     public function movie()
     {
         return $this->belongsToMany('App\Movie')
@@ -30,5 +28,4 @@ class Disc extends Model
             ->withPivot('checkout_time','checkin_time')
             ->withTimestamps();
     }
->>>>>>> refs/remotes/origin/Rental
 }

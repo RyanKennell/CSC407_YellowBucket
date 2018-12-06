@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Movie;
 use App\Disc;
+use App\Review;
 use Illuminate\Support\Facades\DB;
 
 //Author @ Ryan Kennell
@@ -26,13 +27,17 @@ class UserController extends Controller
             ->where('user_id', Auth::user()->id)
             ->toArray();
 
+        $reviews = Review::get()
+            ->where('customer_id', Auth::user()->id)
+            ->toArray();
+
         $current_rentals = array_values($current_rentals);
         $past_rentals = array_values($past_rentals);
 
         $movies = Movie::get()->toArray();
         $discs = Disc::get()->toArray();
 
-        $data = array($current_rentals, $movies, $past_rentals, $discs);
+        $data = array($current_rentals, $movies, $past_rentals, $discs, $reviews);
 
         return view('user.userInfo')->with('data', $data);
     }
