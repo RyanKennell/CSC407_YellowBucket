@@ -18,7 +18,7 @@ class MovieSeeder extends Seeder
     {
         DB::table('movies');
 
-        $covers = array('lof.jpg', 'movie1.jpg', 'movie2.jpg', 'movie3.jpg', 'moviesCover.jpg');
+        $covers = array('bohemian.jpg', 'boyerased.jpg', 'christmasvacation.jpg', 'creed2.jpg', 'frontrunner.jpg', 'greenbook.jpg', 'grinch.jpg', 'halloween.jpg', 'instantfamily.jpg', 'nutcracker.jpg', 'ralph.jpg', 'robinhood.jpg', 'venom.jpg');
 
         $num_movies = 15;
 
@@ -32,7 +32,7 @@ class MovieSeeder extends Seeder
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porttitor vitae ante a scelerisque. Vestibulum orci nulla, gravida sed quam id, aliquam aliquet mauris. Nulla et pharetra ipsum, non pretium odio. Cras sodales finibus eros nec consequat. Duis id tortor turpis. Donec in velit eu nibh interdum iaculis. Suspendisse lobortis leo ac fermentum fermentum. Sed cursus sapien quis lectus rutrum sodales. Nam laoreet nulla felis, quis ultricies arcu pretium in. Phasellus ac laoreet massa. Praesent scelerisque augue sit amet lacus cursus porta. Interdum et malesuada fames ac ante ipsum primis in faucibus. In enim nibh, rutrum eu risus non, consequat.',
                 'onDVD' => '1',
                 'onBlueRay' => '0',
-                'coverPhoto' => $covers[rand(0,4)]
+                'coverPhoto' => $covers[rand(0,count($covers) - 1)]
             ));
         }
 
